@@ -1,0 +1,125 @@
+@import "tailwindcss";
+
+:root {
+  --bg:            #08080C;
+  --bg-2:          #0D0D14;
+  --bg-3:          #12121C;
+  --surface:       rgba(255,255,255,0.04);
+  --border:        rgba(255,255,255,0.08);
+  --border-bright: rgba(255,255,255,0.15);
+
+  /* Agent colours */
+  --iron:      #FF006E;
+  --iron-glow: rgba(255,0,110,0.35);
+  --iron-dim:  rgba(255,0,110,0.12);
+
+  --ember:      #FF5500;
+  --ember-glow: rgba(255,85,0,0.35);
+  --ember-dim:  rgba(255,85,0,0.12);
+
+  --tide:      #00E5FF;
+  --tide-glow: rgba(0,229,255,0.35);
+  --tide-dim:  rgba(0,229,255,0.12);
+
+  --stone:      #A855F7;
+  --stone-glow: rgba(168,85,247,0.35);
+  --stone-dim:  rgba(168,85,247,0.12);
+
+  --storm:      #AAFF00;
+  --storm-glow: rgba(170,255,0,0.35);
+  --storm-dim:  rgba(170,255,0,0.12);
+
+  /* Text */
+  --ink:      #FFFFFF;
+  --muted:    rgba(255,255,255,0.45);
+  --subtle:   rgba(255,255,255,0.22);
+  --hairline: rgba(255,255,255,0.07);
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--ink);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-geist-mono);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: auto; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection { background: rgba(255,0,110,0.25); }
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--iron); border-radius: 2px; }
+
+/* ── Utilities ─────────────────────────────────── */
+
+.mono {
+  font-family: var(--font-geist-mono), 'SF Mono', ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--subtle);
+}
+
+.glass {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* ── Animations ────────────────────────────────── */
+@keyframes blink     { 0%,100%{opacity:1;}50%{opacity:0.1;} }
+@keyframes pulse     { 0%,100%{opacity:.5;transform:scale(1);}50%{opacity:1;transform:scale(1.15);} }
+@keyframes float     { 0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);} }
+@keyframes fadeUp    { from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:none;} }
+@keyframes marquee   { from{transform:translateX(0);}to{transform:translateX(-50%);} }
+@keyframes pulseRing { 0%{transform:scale(0.8);opacity:0.8;}100%{transform:scale(2.4);opacity:0;} }
+@keyframes spin      { to{transform:rotate(360deg);} }
+@keyframes scanline  { from{transform:translateY(-100%);}to{transform:translateY(500%);} }
+@keyframes scanH     { 0%{transform:scaleX(0);opacity:1;} 80%{transform:scaleX(1);opacity:0.6;} 100%{transform:scaleX(1);opacity:0;} }
+@keyframes glitch {
+  0%,100%{clip-path:inset(0 0 98% 0);transform:translate(-2px,0);}
+  20%{clip-path:inset(40% 0 50% 0);transform:translate(2px,0);}
+  40%{clip-path:inset(80% 0 5% 0);transform:translate(-1px,0);}
+  60%{clip-path:inset(20% 0 70% 0);transform:translate(1px,0);}
+  80%{clip-path:inset(60% 0 30% 0);transform:translate(-2px,0);}
+}
+
+/* ── Scroll reveals ────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1),
+              transform 0.75s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.in { opacity:1; transform:none; }
+
+/* ── Agent gradient ────────────────────────────── */
+.agent-grad {
+  background: linear-gradient(90deg, var(--iron) 0%, var(--ember) 25%, var(--tide) 50%, var(--stone) 75%, var(--storm) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
