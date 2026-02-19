@@ -1,0 +1,183 @@
+<svg width="1500" height="500" viewBox="0 0 1500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg-main" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A0510"/>
+      <stop offset="60%" stop-color="#07060C"/>
+      <stop offset="100%" stop-color="#040408"/>
+    </linearGradient>
+    <radialGradient id="bg-glow-left" cx="18%" cy="50%" r="35%">
+      <stop offset="0%" stop-color="#FF006E" stop-opacity="0.07"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <radialGradient id="bg-glow-center" cx="55%" cy="50%" r="40%">
+      <stop offset="0%" stop-color="#A855F7" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <filter id="glow-xl" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="22" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-md" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="9" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glow-sm" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="text-glow" x="-10%" y="-30%" width="120%" height="160%">
+      <feGaussianBlur stdDeviation="12" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="subtle-glow" x="-5%" y="-20%" width="110%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- === BACKGROUND === -->
+  <rect width="1500" height="500" fill="url(#bg-main)"/>
+  <rect width="1500" height="500" fill="url(#bg-glow-left)"/>
+  <rect width="1500" height="500" fill="url(#bg-glow-center)"/>
+
+  <!-- Subtle horizontal scanlines -->
+  <rect width="1500" height="500" fill="none" opacity="0.025">
+    <pattern id="scan" width="1" height="4" patternUnits="userSpaceOnUse">
+      <rect width="1500" height="1" fill="white" y="0"/>
+    </pattern>
+    <rect width="1500" height="500" fill="url(#scan)"/>
+  </rect>
+
+  <!-- Vertical divider line (left section | main section) -->
+  <line x1="340" y1="40" x2="340" y2="460" stroke="rgba(255,0,110,0.15)" stroke-width="1"/>
+
+  <!-- Vertical divider line (main | right section) -->
+  <line x1="1160" y1="40" x2="1160" y2="460" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+
+  <!-- ===== LEFT SECTION — CLAW LOGO ===== -->
+  <!-- Centered around x=170, y=250 -->
+
+  <!-- Outer aura -->
+  <g filter="url(#glow-xl)" opacity="0.4">
+    <path d="M 157 95 Q 118 215 108 390" stroke="#FF006E" stroke-width="38" stroke-linecap="round"/>
+    <path d="M 174 80 Q 170 230 170 400" stroke="#FF006E" stroke-width="38" stroke-linecap="round"/>
+    <path d="M 191 95 Q 222 215 232 390" stroke="#FF006E" stroke-width="38" stroke-linecap="round"/>
+  </g>
+
+  <!-- Mid glow -->
+  <g filter="url(#glow-md)" opacity="0.8">
+    <path d="M 157 95 Q 118 215 108 390" stroke="#FF006E" stroke-width="18" stroke-linecap="round"/>
+    <path d="M 174 80 Q 170 230 170 400" stroke="#FF006E" stroke-width="18" stroke-linecap="round"/>
+    <path d="M 191 95 Q 222 215 232 390" stroke="#FF006E" stroke-width="18" stroke-linecap="round"/>
+  </g>
+
+  <!-- Sharp core -->
+  <g filter="url(#glow-sm)">
+    <path d="M 157 95 Q 118 215 108 390" stroke="#FF99CC" stroke-width="4.5" stroke-linecap="round"/>
+    <path d="M 174 80 Q 170 230 170 400" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+    <path d="M 191 95 Q 222 215 232 390" stroke="#FF99CC" stroke-width="4.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Tip dots -->
+  <circle cx="157" cy="95" r="3.5" fill="white" opacity="0.9"/>
+  <circle cx="174" cy="80" r="4" fill="white"/>
+  <circle cx="191" cy="95" r="3.5" fill="white" opacity="0.9"/>
+
+  <!-- ===== CENTER-LEFT — WORDMARK ===== -->
+  <!-- ROGUECLAW in massive bold -->
+  <g filter="url(#text-glow)">
+    <text
+      x="430"
+      y="290"
+      font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif"
+      font-size="118"
+      font-weight="900"
+      letter-spacing="-4"
+      fill="white"
+      opacity="0.95"
+    >ROGUECLAW</text>
+  </g>
+  <text
+    x="430"
+    y="290"
+    font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif"
+    font-size="118"
+    font-weight="900"
+    letter-spacing="-4"
+    fill="white"
+  >ROGUECLAW</text>
+
+  <!-- Tagline -->
+  <text
+    x="432"
+    y="340"
+    font-family="'Courier New', Courier, monospace"
+    font-size="18"
+    letter-spacing="4"
+    fill="rgba(255,255,255,0.4)"
+  >FIVE AGENTS · ONE TOKEN · ZERO HUMANS</text>
+
+  <!-- Solana label -->
+  <g filter="url(#subtle-glow)">
+    <text
+      x="432"
+      y="384"
+      font-family="'Courier New', Courier, monospace"
+      font-size="13"
+      letter-spacing="3"
+      fill="#FF006E"
+      opacity="0.8"
+    >ON SOLANA · $ROGUECLAW</text>
+  </g>
+
+  <!-- ===== RIGHT SECTION — FIVE AGENTS ===== -->
+  <!-- Starting x=1195, vertically centered -->
+
+  <!-- IRONCLAW -->
+  <g filter="url(#subtle-glow)">
+    <circle cx="1210" cy="148" r="5" fill="#FF006E"/>
+  </g>
+  <text x="1226" y="153" font-family="'Courier New', Courier, monospace" font-size="13" font-weight="700" letter-spacing="2" fill="#FF006E">IRONCLAW</text>
+  <text x="1226" y="170" font-family="'Courier New', Courier, monospace" font-size="10" letter-spacing="1" fill="rgba(255,255,255,0.3)">HUNT · WHALE TRACKING</text>
+
+  <!-- EMBERCLAW -->
+  <g filter="url(#subtle-glow)">
+    <circle cx="1210" cy="215" r="5" fill="#FF5500"/>
+  </g>
+  <text x="1226" y="220" font-family="'Courier New', Courier, monospace" font-size="13" font-weight="700" letter-spacing="2" fill="#FF5500">EMBERCLAW</text>
+  <text x="1226" y="237" font-family="'Courier New', Courier, monospace" font-size="10" letter-spacing="1" fill="rgba(255,255,255,0.3)">BURN · SUPPLY BURNS</text>
+
+  <!-- TIDECLAW -->
+  <g filter="url(#subtle-glow)">
+    <circle cx="1210" cy="282" r="5" fill="#00E5FF"/>
+  </g>
+  <text x="1226" y="287" font-family="'Courier New', Courier, monospace" font-size="13" font-weight="700" letter-spacing="2" fill="#00E5FF">TIDECLAW</text>
+  <text x="1226" y="304" font-family="'Courier New', Courier, monospace" font-size="10" letter-spacing="1" fill="rgba(255,255,255,0.3)">POOL · LIQUIDITY</text>
+
+  <!-- STONECLAW -->
+  <g filter="url(#subtle-glow)">
+    <circle cx="1210" cy="349" r="5" fill="#A855F7"/>
+  </g>
+  <text x="1226" y="354" font-family="'Courier New', Courier, monospace" font-size="13" font-weight="700" letter-spacing="2" fill="#A855F7">STONECLAW</text>
+  <text x="1226" y="371" font-family="'Courier New', Courier, monospace" font-size="10" letter-spacing="1" fill="rgba(255,255,255,0.3)">VAULT · TREASURY</text>
+
+  <!-- STORMCLAW -->
+  <g filter="url(#subtle-glow)">
+    <circle cx="1210" cy="416" r="5" fill="#AAFF00"/>
+  </g>
+  <text x="1226" y="421" font-family="'Courier New', Courier, monospace" font-size="13" font-weight="700" letter-spacing="2" fill="#AAFF00">STORMCLAW</text>
+  <text x="1226" y="438" font-family="'Courier New', Courier, monospace" font-size="10" letter-spacing="1" fill="rgba(255,255,255,0.3)">RAID · MARKET RAIDS</text>
+
+  <!-- Corner accents -->
+  <line x1="0" y1="0" x2="60" y2="0" stroke="#FF006E" stroke-width="2" opacity="0.5"/>
+  <line x1="0" y1="0" x2="0" y2="60" stroke="#FF006E" stroke-width="2" opacity="0.5"/>
+  <line x1="1500" y1="0" x2="1440" y2="0" stroke="#AAFF00" stroke-width="2" opacity="0.5"/>
+  <line x1="1500" y1="0" x2="1500" y2="60" stroke="#AAFF00" stroke-width="2" opacity="0.5"/>
+  <line x1="0" y1="500" x2="60" y2="500" stroke="#FF006E" stroke-width="2" opacity="0.5"/>
+  <line x1="0" y1="500" x2="0" y2="440" stroke="#FF006E" stroke-width="2" opacity="0.5"/>
+  <line x1="1500" y1="500" x2="1440" y2="500" stroke="#AAFF00" stroke-width="2" opacity="0.5"/>
+  <line x1="1500" y1="500" x2="1500" y2="440" stroke="#AAFF00" stroke-width="2" opacity="0.5"/>
+
+  <!-- Outer border -->
+  <rect width="1500" height="500" stroke="rgba(255,255,255,0.06)" stroke-width="1" fill="none"/>
+</svg>
